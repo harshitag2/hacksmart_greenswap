@@ -872,16 +872,27 @@ if 'stations' not in st.session_state:
 # HEADER
 # =====================================================================
 
-# Helper to load local image
-def get_img_as_base64(file_path):
-    with open(file_path, "rb") as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+# # Helper to load local image
+# def get_img_as_base64(file_path):
+#     with open(file_path, "rb") as f:
+#         data = f.read()
+#     return base64.b64encode(data).decode()
 
 # Logo path
-logo_path = "/Users/harshitagarwal/.gemini/antigravity/brain/4c59d6e5-0e9d-48b3-a80c-02f4d7fed25b/uploaded_media_1769593312452.png"
-logo_b64 = get_img_as_base64(logo_path)
+# logo_path = "/Users/harshitagarwal/.gemini/antigravity/brain/4c59d6e5-0e9d-48b3-a80c-02f4d7fed25b/uploaded_media_1769593312452.png"
+# logo_b64 = get_img_as_base64(logo_path)
+import os
+import base64
 
+def get_img_as_base64(file_path):
+    with open(file_path, "rb") as f:
+        return base64.b64encode(f.read()).decode()
+
+# Path relative to THIS file
+BASE_DIR = os.path.dirname(__file__)
+logo_path = os.path.join(BASE_DIR, "greenswap_logo_hd.png")
+
+logo_b64 = get_img_as_base64(logo_path)
 
 
 def load_excel_demand_data():
