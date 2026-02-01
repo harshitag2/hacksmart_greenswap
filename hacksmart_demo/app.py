@@ -1064,11 +1064,25 @@ import base64
 from datetime import datetime
 
 # Read Logo
-try:
-    with open("greenswap_logo.png", "rb") as f:
+# try:
+#     with open("greenswap_logo.png", "rb") as f:
+#         logo_b64 = base64.b64encode(f.read()).decode()
+# except:
+#     logo_b64 = ""
+from pathlib import Path
+import base64
+import streamlit as st
+
+BASE_DIR = Path(__file__).resolve().parent
+logo_path = BASE_DIR / "greenswap_logo.png"
+
+if logo_path.exists():
+    with open(logo_path, "rb") as f:
         logo_b64 = base64.b64encode(f.read()).decode()
-except:
+else:
+    st.warning("Logo file not found: greenswap_logo.png")
     logo_b64 = ""
+
 
 with st.sidebar:
     # Sidebar Header (Logo)
