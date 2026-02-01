@@ -606,7 +606,12 @@ class SimulationEngine:
 # DATA INITIALIZATION
 # =====================================================================
 
-STATION_FILE = "stations.json"
+# STATION_FILE = "stations.json"
+import os
+
+BASE_DIR = os.path.dirname(__file__)
+STATION_FILE = os.path.join(BASE_DIR, "stations.json")
+
 
 def save_stations_to_file(stations):
     """Save current stations list to JSON file."""
