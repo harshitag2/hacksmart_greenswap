@@ -1283,7 +1283,8 @@ if page == "Dashboard Home":
     # City-Wide Demand Curve
     st.markdown("### <i class='fa-solid fa-arrow-trend-up'></i> City-Wide Demand Trends", unsafe_allow_html=True)
     
-    st.plotly_chart(generate_demand_curve(None, hours_limit=selected_hours), use_column_width=True)
+    # st.plotly_chart(generate_demand_curve(None, hours_limit=selected_hours), use_column_width=True)
+    st.plotly_chart(generate_demand_curve(None, hours_limit=selected_hours), use_container_width=True)
 
     # Map and Station Details Logic
     
